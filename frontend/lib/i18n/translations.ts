@@ -8,6 +8,9 @@ export const translations = {
     },
     wizard: {
       title: "新規レポート作成",
+      titleProtocol: "/ INITIALIZE_PROTOCOL",
+      subtitleConfig: "調査パラメータの構成",
+      notifyEmail: "完了時にメールで通知 (ENB_NOTIFY_EMAIL)",
       topicLabel: "調査テーマ (Topic)",
       topicPlaceholder: "例: 生成AIの最新トレンド2025",
       industryLabel: "業界カテゴリ (Industry)",
@@ -52,6 +55,9 @@ export const translations = {
     },
     wizard: {
       title: "Create New Report",
+      titleProtocol: "/ INITIALIZE_PROTOCOL",
+      subtitleConfig: "Configure research parameters",
+      notifyEmail: "ENB_NOTIFY_EMAIL",
       topicLabel: "Research Topic",
       topicPlaceholder: "e.g., Latest AI trends 2025",
       industryLabel: "Industry Category",
@@ -96,6 +102,9 @@ export const translations = {
     },
     wizard: {
       title: "创建新报告",
+      titleProtocol: "/ INITIALIZE_PROTOCOL",
+      subtitleConfig: "配置调查参数",
+      notifyEmail: "完成后发送邮件通知 (ENB_NOTIFY_EMAIL)",
       topicLabel: "调查主题 (Topic)",
       topicPlaceholder: "例如：2025 年生成式 AI 最新趋势",
       industryLabel: "行业类别 (Industry)",

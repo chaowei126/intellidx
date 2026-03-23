@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -19,6 +20,7 @@ const config: Config = {
         "neon-lime": "#bef264",
         "neon-indigo": "#6366f1",
       },
+
       backgroundImage: {
         'grain': "url('/noise.png')", // Optional, we can add a noise class later via pure CSS
       }

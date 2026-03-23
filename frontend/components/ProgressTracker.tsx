@@ -43,22 +43,22 @@ export default function ProgressTracker({ reportId, onComplete }: { reportId: st
     }, [messages]);
 
     return (
-        <div className="w-full bg-zinc-900 border-2 border-zinc-800 shadow-2xl relative overflow-hidden">
-            <div className="flex items-center justify-between px-6 py-4 border-b-2 border-zinc-800 bg-zinc-950/50">
+        <div className="w-full bg-zinc-50 dark:bg-zinc-900 border-2 border-zinc-300 dark:border-zinc-800 shadow-2xl relative overflow-hidden">
+            <div className="flex items-center justify-between px-6 py-4 border-b-2 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950/50">
                 <div className="flex items-center gap-3">
-                    <Terminal className="text-neon-lime" size={20} />
-                    <h3 className="text-sm font-space font-bold uppercase tracking-widest text-zinc-300">SYSTEM_LOG</h3>
+                    <Terminal className="text-neon-indigo dark:text-neon-lime" size={20} />
+                    <h3 className="text-sm font-space font-bold uppercase tracking-widest text-zinc-900 dark:text-zinc-300">SYSTEM_LOG</h3>
                 </div>
-                <div className="font-mono text-xs text-neon-lime font-bold">
+                <div className="font-mono text-xs text-neon-indigo dark:text-neon-lime font-bold">
                     {Math.round(progress)}%
                 </div>
             </div>
 
             <div className="p-6">
                 {/* Progress Bar */}
-                <div className="w-full bg-zinc-950 border-2 border-zinc-800 h-6 mb-8 relative overflow-hidden">
+                <div className="w-full bg-zinc-200 dark:bg-zinc-950 border-2 border-zinc-300 dark:border-zinc-800 h-6 mb-8 relative overflow-hidden">
                     <div 
-                        className="h-full bg-neon-lime transition-all duration-700 ease-out relative"
+                        className="h-full bg-neon-indigo dark:bg-neon-lime transition-all duration-700 ease-out relative"
                         style={{ width: `${progress}%` }}
                     >
                         {/* Striped overlay pattern for the bar */}
@@ -69,21 +69,21 @@ export default function ProgressTracker({ reportId, onComplete }: { reportId: st
                 {/* Terminal Output */}
                 <div 
                     ref={scrollRef}
-                    className="bg-zinc-950 border border-zinc-800 p-5 h-64 overflow-y-auto font-mono text-sm leading-relaxed"
+                    className="bg-black/5 dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-800 p-5 h-64 overflow-y-auto font-mono text-sm leading-relaxed"
                 >
                     {messages.length === 0 && (
-                        <p className="text-zinc-600 animate-pulse">&gt; Waiting for agent execution protocol...</p>
+                        <p className="text-zinc-500 dark:text-zinc-600 animate-pulse">&gt; Waiting for agent execution protocol...</p>
                     )}
                     {messages.map((msg, idx) => (
-                        <div key={idx} className="flex gap-3 text-zinc-400 mb-2">
-                            <span className="text-zinc-600 shrink-0">[{new Date().toISOString().split('T')[1].slice(0, 8)}]</span>
-                            <span className={idx === messages.length - 1 ? 'text-neon-lime' : ''}>
+                        <div key={idx} className="flex gap-3 text-zinc-600 dark:text-zinc-400 mb-2">
+                            <span className="text-zinc-400 dark:text-zinc-600 shrink-0">[{new Date().toISOString().split('T')[1].slice(0, 8)}]</span>
+                            <span className={idx === messages.length - 1 ? 'text-neon-indigo font-bold dark:font-normal dark:text-neon-lime' : ''}>
                                 {'> '}{msg}
                             </span>
                         </div>
                     ))}
                     {/* Blinking cursor */}
-                    <div className="inline-block w-2.5 h-4 bg-neon-lime animate-pulse ml-1 mt-1"></div>
+                    <div className="inline-block w-2.5 h-4 bg-neon-indigo dark:bg-neon-lime animate-pulse ml-1 mt-1"></div>
                 </div>
             </div>
         </div>

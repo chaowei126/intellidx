@@ -35,27 +35,27 @@ export default function ReportWizard() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="w-full max-w-3xl mx-auto bg-zinc-900/80 backdrop-blur-sm border-2 border-zinc-800 p-8 md:p-12 shadow-2xl relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-neon-indigo/10 rounded-full blur-3xl -z-10 pointer-events-none" />
+        <form onSubmit={handleSubmit} className="w-full max-w-3xl mx-auto bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border-2 border-zinc-300 dark:border-zinc-800 p-8 md:p-12 shadow-2xl relative overflow-hidden group transition-colors">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-neon-indigo/20 dark:bg-neon-indigo/10 rounded-full blur-3xl -z-10 pointer-events-none" />
             
-            <div className="mb-10 border-b-2 border-zinc-800 pb-6">
-                <h2 className="text-3xl font-space font-black text-zinc-100 uppercase tracking-tighter">
-                    / INITIALIZE_PROTOCOL
+            <div className="mb-10 border-b-2 border-zinc-200 dark:border-zinc-800 pb-6 transition-colors">
+                <h2 className="text-3xl font-space font-black text-zinc-950 dark:text-zinc-100 uppercase tracking-tighter transition-colors">
+                    {t.wizard.titleProtocol}
                 </h2>
-                <p className="text-zinc-500 font-mono mt-2 text-sm uppercase">Configure research parameters</p>
+                <p className="text-zinc-500 dark:text-zinc-500 font-mono mt-2 text-sm uppercase">{t.wizard.subtitleConfig}</p>
             </div>
 
             <div className="space-y-8">
                 {/* Topic Input */}
                 <div className="group/input">
-                    <label className="flex items-center gap-2 text-sm font-space font-bold uppercase tracking-widest text-zinc-400 mb-3 group-focus-within/input:text-neon-lime transition-colors">
-                        <span className="w-2 h-2 bg-zinc-700 group-focus-within/input:bg-neon-lime transition-colors"></span>
+                    <label className="flex items-center gap-2 text-sm font-space font-bold uppercase tracking-widest text-zinc-600 dark:text-zinc-400 mb-3 group-focus-within/input:text-neon-indigo dark:group-focus-within/input:text-neon-lime transition-colors">
+                        <span className="w-2 h-2 bg-zinc-300 dark:bg-zinc-700 group-focus-within/input:bg-neon-indigo dark:group-focus-within/input:bg-neon-lime transition-colors"></span>
                         {t.wizard.topicLabel}
                     </label>
                     <input
                         type="text"
                         required
-                        className="w-full bg-zinc-950 border-2 border-zinc-700 text-zinc-100 px-4 py-4 font-mono text-lg focus:outline-none focus:border-neon-lime focus:ring-0 placeholder-zinc-700 transition-colors"
+                        className="w-full bg-zinc-50 dark:bg-zinc-950 border-2 border-zinc-200 dark:border-zinc-700 text-zinc-950 dark:text-zinc-100 px-4 py-4 font-mono text-lg focus:outline-none focus:border-neon-indigo focus:dark:border-neon-lime focus:ring-0 placeholder-zinc-400 dark:placeholder-zinc-700 transition-colors"
                         placeholder={t.wizard.topicPlaceholder}
                         value={config.topic}
                         onChange={(e) => setConfig({ ...config, topic: e.target.value })}
@@ -65,12 +65,12 @@ export default function ReportWizard() {
                 {/* Industry & Depth */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="group/input">
-                        <label className="flex items-center gap-2 text-sm font-space font-bold uppercase tracking-widest text-zinc-400 mb-3 group-focus-within/input:text-neon-indigo transition-colors">
-                            <span className="w-2 h-2 bg-zinc-700 group-focus-within/input:bg-neon-indigo transition-colors"></span>
+                        <label className="flex items-center gap-2 text-sm font-space font-bold uppercase tracking-widest text-zinc-600 dark:text-zinc-400 mb-3 group-focus-within/input:text-neon-indigo transition-colors">
+                            <span className="w-2 h-2 bg-zinc-300 dark:bg-zinc-700 group-focus-within/input:bg-neon-indigo transition-colors"></span>
                             {t.wizard.industryLabel}
                         </label>
                         <select
-                            className="w-full appearance-none bg-zinc-950 border-2 border-zinc-700 text-zinc-300 px-4 py-4 font-mono focus:outline-none focus:border-neon-indigo focus:ring-0 transition-colors"
+                            className="w-full appearance-none bg-zinc-50 dark:bg-zinc-950 border-2 border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-300 px-4 py-4 font-mono focus:outline-none focus:border-neon-indigo focus:ring-0 transition-colors"
                             value={config.industry}
                             onChange={(e) => setConfig({ ...config, industry: e.target.value })}
                         >
@@ -82,12 +82,12 @@ export default function ReportWizard() {
                     </div>
 
                     <div className="group/input">
-                        <label className="flex items-center gap-2 text-sm font-space font-bold uppercase tracking-widest text-zinc-400 mb-3 group-focus-within/input:text-neon-indigo transition-colors">
-                            <span className="w-2 h-2 bg-zinc-700 group-focus-within/input:bg-neon-indigo transition-colors"></span>
+                        <label className="flex items-center gap-2 text-sm font-space font-bold uppercase tracking-widest text-zinc-600 dark:text-zinc-400 mb-3 group-focus-within/input:text-neon-indigo transition-colors">
+                            <span className="w-2 h-2 bg-zinc-300 dark:bg-zinc-700 group-focus-within/input:bg-neon-indigo transition-colors"></span>
                             {t.wizard.depthLabel}
                         </label>
                         <select
-                            className="w-full appearance-none bg-zinc-950 border-2 border-zinc-700 text-zinc-300 px-4 py-4 font-mono focus:outline-none focus:border-neon-indigo focus:ring-0 transition-colors"
+                            className="w-full appearance-none bg-zinc-50 dark:bg-zinc-950 border-2 border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-300 px-4 py-4 font-mono focus:outline-none focus:border-neon-indigo focus:ring-0 transition-colors"
                             value={config.depth}
                             onChange={(e) => setConfig({ ...config, depth: e.target.value as any })}
                         >
@@ -101,12 +101,12 @@ export default function ReportWizard() {
                 {/* Language & Model */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="group/input">
-                        <label className="flex items-center gap-2 text-sm font-space font-bold uppercase tracking-widest text-zinc-400 mb-3 group-focus-within/input:text-neon-indigo transition-colors">
-                            <span className="w-2 h-2 bg-zinc-700 group-focus-within/input:bg-neon-indigo transition-colors"></span>
+                        <label className="flex items-center gap-2 text-sm font-space font-bold uppercase tracking-widest text-zinc-600 dark:text-zinc-400 mb-3 group-focus-within/input:text-neon-indigo transition-colors">
+                            <span className="w-2 h-2 bg-zinc-300 dark:bg-zinc-700 group-focus-within/input:bg-neon-indigo transition-colors"></span>
                             {t.wizard.languageLabel}
                         </label>
                         <select
-                            className="w-full appearance-none bg-zinc-950 border-2 border-zinc-700 text-zinc-300 px-4 py-4 font-mono focus:outline-none focus:border-neon-indigo focus:ring-0 transition-colors"
+                            className="w-full appearance-none bg-zinc-50 dark:bg-zinc-950 border-2 border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-300 px-4 py-4 font-mono focus:outline-none focus:border-neon-indigo focus:ring-0 transition-colors"
                             value={config.language}
                             onChange={(e) => setConfig({ ...config, language: e.target.value as any })}
                         >
@@ -117,12 +117,12 @@ export default function ReportWizard() {
                     </div>
 
                     <div className="group/input">
-                        <label className="flex items-center gap-2 text-sm font-space font-bold uppercase tracking-widest text-zinc-400 mb-3 group-focus-within/input:text-neon-indigo transition-colors">
-                            <span className="w-2 h-2 bg-zinc-700 group-focus-within/input:bg-neon-indigo transition-colors"></span>
+                        <label className="flex items-center gap-2 text-sm font-space font-bold uppercase tracking-widest text-zinc-600 dark:text-zinc-400 mb-3 group-focus-within/input:text-neon-indigo transition-colors">
+                            <span className="w-2 h-2 bg-zinc-300 dark:bg-zinc-700 group-focus-within/input:bg-neon-indigo transition-colors"></span>
                             {t.wizard.modelLabel}
                         </label>
                         <select
-                            className="w-full appearance-none bg-zinc-950 border-2 border-zinc-700 text-zinc-300 px-4 py-4 font-mono focus:outline-none focus:border-neon-indigo focus:ring-0 transition-colors"
+                            className="w-full appearance-none bg-zinc-50 dark:bg-zinc-950 border-2 border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-300 px-4 py-4 font-mono focus:outline-none focus:border-neon-indigo focus:ring-0 transition-colors"
                             value={config.model_name}
                             onChange={(e) => setConfig({ ...config, model_name: e.target.value })}
                         >
@@ -134,31 +134,31 @@ export default function ReportWizard() {
                 </div>
 
                 {/* Notifications */}
-                <div className="flex items-center gap-4 bg-zinc-950/50 p-4 border border-zinc-800">
+                <div className="flex items-center gap-4 bg-zinc-100/50 dark:bg-zinc-950/50 p-4 border border-zinc-300 dark:border-zinc-800 transition-colors">
                     <div className="relative flex items-start">
                         <div className="flex h-6 items-center">
                             <input
                                 id="email_on_complete"
                                 type="checkbox"
-                                className="h-5 w-5 appearance-none border-2 border-zinc-600 bg-zinc-900 checked:bg-neon-lime checked:border-neon-lime focus:outline-none focus:ring-2 focus:ring-neon-lime focus:ring-offset-2 focus:ring-offset-zinc-950 transition-colors cursor-pointer relative checked:before:content-['✓'] checked:before:absolute checked:before:text-zinc-950 checked:before:font-bold checked:before:text-xs checked:before:left-1/2 checked:before:top-1/2 checked:before:-translate-x-1/2 checked:before:-translate-y-1/2"
+                                className="h-5 w-5 appearance-none border-2 border-zinc-400 dark:border-zinc-600 bg-white dark:bg-zinc-900 checked:bg-neon-indigo dark:checked:bg-neon-lime checked:border-neon-indigo dark:checked:border-neon-lime focus:outline-none focus:ring-2 focus:ring-neon-indigo dark:focus:ring-neon-lime focus:ring-offset-2 focus:ring-offset-zinc-50 dark:focus:ring-offset-zinc-950 transition-colors cursor-pointer relative checked:before:content-['✓'] checked:before:absolute checked:before:text-white dark:checked:before:text-zinc-950 checked:before:font-bold checked:before:text-xs checked:before:left-1/2 checked:before:top-1/2 checked:before:-translate-x-1/2 checked:before:-translate-y-1/2"
                                 checked={config.email_on_complete}
                                 onChange={(e) => setConfig({ ...config, email_on_complete: e.target.checked })}
                             />
                         </div>
                         <div className="ml-3 text-sm leading-6">
-                            <label htmlFor="email_on_complete" className="font-mono text-zinc-400 uppercase tracking-wide cursor-pointer select-none hover:text-zinc-200 transition-colors">
-                                ENB_NOTIFY_EMAIL
+                            <label htmlFor="email_on_complete" className="font-mono text-zinc-600 dark:text-zinc-400 uppercase tracking-wide cursor-pointer select-none hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors">
+                                {t.wizard.notifyEmail}
                             </label>
                         </div>
                     </div>
                 </div>
 
                 {/* Submit */}
-                <div className="pt-6 border-t-2 border-zinc-800 mt-10">
+                <div className="pt-6 border-t-2 border-zinc-200 dark:border-zinc-800 mt-10 transition-colors">
                     <button 
                         type="submit" 
                         disabled={loading} 
-                        className="w-full group relative flex justify-center items-center gap-3 py-5 px-8 bg-neon-lime text-zinc-950 border-2 border-neon-lime font-space font-black text-xl uppercase tracking-widest disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zinc-50 hover:border-zinc-50 transition-all hover:-translate-y-1 hover:translate-x-1 hover:shadow-[-6px_6px_0px_0px_rgba(255,255,255,0.2)]"
+                        className="w-full group relative flex justify-center items-center gap-3 py-5 px-8 bg-neon-indigo dark:bg-neon-lime text-white dark:text-zinc-950 border-2 border-neon-indigo dark:border-neon-lime font-space font-black text-xl uppercase tracking-widest disabled:opacity-50 disabled:cursor-not-allowed hover:bg-zinc-950 dark:hover:bg-zinc-50 hover:text-zinc-50 dark:hover:text-zinc-950 hover:border-zinc-950 dark:hover:border-zinc-50 transition-all hover:-translate-y-1 hover:translate-x-1 hover:shadow-[-6px_6px_0px_0px_rgba(0,0,0,0.2)] dark:hover:shadow-[-6px_6px_0px_0px_rgba(255,255,255,0.2)]"
                     >
                         {loading ? (
                             <>
