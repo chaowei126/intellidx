@@ -1,22 +1,30 @@
 # IntelliDX
 
-DX推進を加速する産業特化型AI リサーチ＆レポート自動生成エンジン
+[English](README.md) | [中文](README_CN.md) | [日本語](README_JP.md)
 
-## プロジェクト概要 (Project Overview)
-IntelliDX は、日本企業の DX 推進部門が直面する「調査・分析・報告書作成」という反復的かつ時間集約的な業務を、Multi-Agent AI によって自動化するプラットフォームです。
-「競合分析・市場調査・技術選定レポートを、3日間かかる作業から3分に圧縮するDX専用AIリサーチエンジン」
+An industry-specific AI Research & Report Generation engine designed to accelerate Digital Transformation (DX).
 
-## 構成 (Architecture)
-- **Frontend**: Next.js 14 (App Router) + TailwindCSS
+## Project Overview
+IntelliDX is a platform that automates the repetitive and time-intensive "Research, Analysis, and Reporting" tasks faced by DX promotion departments in Japanese enterprises. 
+**"Compress 3 days of competitive analysis, market research, and technology selection reporting into 3 minutes."**
+
+## Core Features
+- **Multi-Agent Research**: Powered by LangGraph, coordinating specialized agents (Planner, Researcher, Analyst, Writer).
+- **Neo-Brutalist UI**: A distinctive, high-contrast professional interface designed for focus and impact.
+- **Multi-Format Export**: Generate professional reports in DOCX, PDF, and SWOT analysis formats.
+- **Internationalization (i18n)**: Native support for English, Japanese, and Chinese.
+
+## Tech Stack
+- **Frontend**: Next.js 14 (App Router) + TailwindCSS + Lucide Icons
 - **Backend API**: FastAPI (Python 3.11)
 - **Worker**: Celery + Redis
 - **Database**: PostgreSQL
-- **AI Engine**: LangGraph + Google Gemini
+- **AI Engine**: LangGraph + Google Gemini 2.5/3.1
 
-## ローカル起動方法 (Local Setup)
+## Getting Started
 
-1. 環境変数の設定
-プロジェクトルートに `.env` ファイルを作成してください。
+### 1. Environment Configuration
+Create a `.env` file in the project root:
 
 ```ini
 GEMINI_API_KEY=your_gemini_api_key
@@ -25,12 +33,15 @@ NEWS_API_KEY=your_news_api_key
 GCS_BUCKET=your_gcs_bucket_name
 ```
 
-2. Docker Compose で起動
+### 2. Run with Docker Compose
 ```bash
 docker-compose up --build
 ```
 
-3. アクセス
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:8000
-- API Docs: http://localhost:8000/docs
+### 3. Accessing the Platform
+- **Frontend**: http://localhost:8080 (Proxied via Nginx)
+- **Backend API**: http://localhost:8080/api/
+- **Interactive Documentation**: http://localhost:8080/api/docs
+
+## License
+MIT License
