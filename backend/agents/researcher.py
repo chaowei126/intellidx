@@ -17,8 +17,11 @@ async def research_single_topic(query: str) -> dict:
 
     findings, citations = [], []
     for result_set in results:
-        if isinstance(result_set, Exception):
-            print(f"  Tool error: {result_set}")
+        if isinstance(result_set, Exception) or result_set is None:
+            print(f"  Tool error or empty result: {result_set}")
+            continue
+
+        if not isinstance(result_set, list):
             continue
 
         for item in result_set:
@@ -37,19 +40,31 @@ async def research_single_topic(query: str) -> dict:
 async def researcher_node(state: ResearchState) -> dict:
     """Parallel execution of all search queries"""
     queries = state.get("search_queries", [])
+    iterations = state.get("iterations", 0) + 1
+    
     if not queries:
-        return {"error": "No search queries provided"}
+        return {"error": "No search queries provided", "iterations": iterations}
 
-    print(f"Executing {len(queries)} parallel research tasks...")
+    print(f"Executing {len(queries)} parallel research tasks (Iteration {iterations})...")
+
+    # Add a small delay between iterations to avoid NewsAPI rate limits
+    if iterations > 1:
+        await asyncio.sleep(2.0)
 
     tasks = [research_single_topic(q) for q in queries]
     results = await asyncio.gather(*tasks, return_exceptions=True)
 
     all_findings, all_citations = [], []
     for r in results:
-        if not isinstance(r, Exception):
-            all_findings.extend(r["findings"])
-            all_citations.extend(r["citations"])
+        if isinstance(r, dict):
+            all_findings.extend(r.get("findings", []))
+            all_citations.extend(r.get("citations", []))
+        elif isinstance(r, Exception):
+            print(f"  Topic research failed: {r}")
 
     print(f"  → {len(all_findings)} findings, {len(all_citations)} citations collected")
-    return {"findings": all_findings, "citations": all_citations}
+    return {
+        "findings": all_findings, 
+        "citations": all_citations,
+        "iterations": iterations
+    }

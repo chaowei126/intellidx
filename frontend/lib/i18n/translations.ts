@@ -6,6 +6,13 @@ export const translations = {
       noReports: "レポートはまだありません。",
       backToDashboard: "← ダッシュボードに戻る",
     },
+    login: {
+      title: "認証 (AUTH)",
+      subtitle: "管理システムへアクセス",
+      username: "ユーザー名 (Username)",
+      password: "パスワード (Password)",
+      submit: "ログイン",
+    },
     wizard: {
       title: "新規レポート作成",
       titleProtocol: "/ INITIALIZE_PROTOCOL",
@@ -44,6 +51,7 @@ export const translations = {
     common: {
       loading: "読み込み中...",
       error: "エラーが発生しました",
+      logout: "ログアウト",
     }
   },
   en: {
@@ -52,6 +60,13 @@ export const translations = {
       newReport: "+ Create New Report",
       noReports: "No reports yet.",
       backToDashboard: "← Back to Dashboard",
+    },
+    login: {
+      title: "Authentication",
+      subtitle: "Access the system",
+      username: "Username",
+      password: "Password",
+      submit: "Login",
     },
     wizard: {
       title: "Create New Report",
@@ -91,6 +106,7 @@ export const translations = {
     common: {
       loading: "Loading...",
       error: "An error occurred",
+      logout: "Logout",
     }
   },
   zh: {
@@ -99,6 +115,13 @@ export const translations = {
       newReport: "＋ 创建新报告",
       noReports: "暂无报告。",
       backToDashboard: "← 返回控制面板",
+    },
+    login: {
+      title: "系统认证 (AUTH)",
+      subtitle: "访问后台管理权限",
+      username: "用户名 (Username)",
+      password: "密码 (Password)",
+      submit: "登录系统",
     },
     wizard: {
       title: "创建新报告",
@@ -138,6 +161,7 @@ export const translations = {
     common: {
       loading: "加载中...",
       error: "发生错误",
+      logout: "安全退出",
     }
   }
 };

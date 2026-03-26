@@ -21,7 +21,7 @@ def build_research_graph():
     graph.add_edge("researcher", "analyst")
     graph.add_conditional_edges(
         "analyst",
-        lambda s: "writer" if s.get("quality_score", 0) >= 0.7 else "researcher",
+        lambda s: "writer" if (s.get("quality_score", 0) >= 0.7 or s.get("iterations", 0) >= 3) else "researcher",
         {"writer": "writer", "researcher": "researcher"},
     )
     graph.add_edge("writer", "output")

@@ -23,7 +23,10 @@ async def search_web(query: str, num_results: int = 5) -> List[Dict]:
     try:
         async with httpx.AsyncClient() as client:
             response = await client.post(url, headers=headers, json=payload, timeout=10.0)
-            response.raise_for_status()
+            if response.status_code != 200:
+                print(f"Web search error ({response.status_code}): {response.text}")
+                return []
+            
             data = response.json()
             
             results = []
@@ -35,5 +38,5 @@ async def search_web(query: str, num_results: int = 5) -> List[Dict]:
                 })
             return results
     except Exception as e:
-        print(f"Web search error: {e}")
+        print(f"Web search connection error: {e}")
         return []

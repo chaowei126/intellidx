@@ -10,9 +10,16 @@ IntelliDX is a platform that automates the repetitive and time-intensive "Resear
 
 ## Core Features
 - **Multi-Agent Research**: Powered by LangGraph, coordinating specialized agents (Planner, Researcher, Analyst, Writer).
+- **Robustness Engine**: Built-in protection against infinite loops and API rate limits.
 - **Neo-Brutalist UI**: A distinctive, high-contrast professional interface designed for focus and impact.
 - **Multi-Format Export**: Generate professional reports in DOCX, PDF, and SWOT analysis formats.
 - **Internationalization (i18n)**: Native support for English, Japanese, and Chinese.
+
+## UI Showcase
+
+| Login Page | Dashboard | Report Analysis |
+| :---: | :---: | :---: |
+| ![Login](docs/screenshots/login.png) | ![Dashboard](docs/screenshots/dashboard.png) | ![Report](docs/screenshots/report_detail.png) |
 
 ## Tech Stack
 - **Frontend**: Next.js 14 (App Router) + TailwindCSS + Lucide Icons
@@ -20,6 +27,12 @@ IntelliDX is a platform that automates the repetitive and time-intensive "Resear
 - **Worker**: Celery + Redis
 - **Database**: PostgreSQL
 - **AI Engine**: LangGraph + Google Gemini 2.5/3.1
+
+### Agent Robustness & Error Handling
+To ensure the system remains stable even when external APIs fail:
+- **Iteration Limit**: The research phase is capped at 3 iterations. If search results are insufficient, it proceeds gracefully instead of looping.
+- **API Credit Detection**: Improved logging to identify specific failures (e.g., Serper 400 "Not enough credits").
+- **Rate Limit Backoff**: Automated delays between research tasks to satisfy NewsAPI's 429 limits.
 
 ## Getting Started
 

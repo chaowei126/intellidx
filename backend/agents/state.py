@@ -16,5 +16,6 @@ class ResearchState(TypedDict):
     model_name: str
     report_content: str
     quality_score: float
+    iterations: int
     output_files: dict
     error: str
